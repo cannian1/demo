@@ -5,7 +5,6 @@ go 1.22.0
 toolchain go1.23.2
 
 require (
-	github.com/bwmarrin/snowflake v0.3.0
 	github.com/gin-gonic/gin v1.10.0
 	github.com/prashantv/gostub v1.1.0
 	github.com/spf13/cast v1.7.0
