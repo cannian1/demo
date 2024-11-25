@@ -6,6 +6,8 @@ import (
 	"fmt"
 )
 
+// 享元模式 + 防 git 冲突的设计
+
 type EnumType int64
 
 type InstanceManage interface {
