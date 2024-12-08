@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"demo/redis-demo/3.incr/id_generator"
+	"demo/redis-demo/1.03.incr/id_generator"
 	"github.com/redis/go-redis/v9"
 )
 

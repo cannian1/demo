@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"demo/redis-demo/4.counter/counter"
+	"demo/redis-demo/1.04.counter/counter"
 	"github.com/redis/go-redis/v9"
 )
 

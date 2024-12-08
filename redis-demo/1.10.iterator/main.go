@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"demo/redis-demo/10.iterator/dbiterator"
+	"demo/redis-demo/1.10.iterator/dbiterator"
 	"github.com/redis/go-redis/v9"
 )
 

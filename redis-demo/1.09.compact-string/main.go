@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"demo/redis-demo/9.compact-string/compact_str"
+	"demo/redis-demo/1.09.compact-string/compact_str"
 	"github.com/redis/go-redis/v9"
 )
 

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"demo/redis-demo/1.cache/cache"
+	"demo/redis-demo/1.01.cache/cache"
 	"github.com/redis/go-redis/v9"
 	"github.com/spf13/cast"
 )

@@ -3,7 +3,7 @@ package main
 import (
 	"time"
 
-	"demo/redis-demo/6.rate-limiter/ratelimit"
+	"demo/redis-demo/1.06.rate-limiter/ratelimit"
 	"github.com/redis/go-redis/v9"
 )
 

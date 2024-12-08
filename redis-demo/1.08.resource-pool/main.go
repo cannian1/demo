@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"demo/redis-demo/8.resource-pool/resource_pool"
+	"demo/redis-demo/1.08.resource-pool/resource_pool"
 	"github.com/redis/go-redis/v9"
 )
 

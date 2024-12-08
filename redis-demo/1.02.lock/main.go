@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"demo/redis-demo/2.lock/lock"
+	"demo/redis-demo/1.02.lock/lock"
 	"github.com/google/uuid"
 	"github.com/redis/go-redis/v9"
 )

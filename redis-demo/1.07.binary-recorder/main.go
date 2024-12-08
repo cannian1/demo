@@ -1,7 +1,7 @@
 package main
 
 import (
-	"demo/redis-demo/7.binary-recorder/binary_record"
+	"demo/redis-demo/1.07.binary-recorder/binary_record"
 	"github.com/redis/go-redis/v9"
 )
 

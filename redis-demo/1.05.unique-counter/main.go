@@ -1,7 +1,7 @@
 package main
 
 import (
-	"demo/redis-demo/5.unique-counter/unique_counter"
+	"demo/redis-demo/1.05.unique-counter/unique_counter"
 	"github.com/redis/go-redis/v9"
 )
 
