@@ -21,12 +21,12 @@ func NewRedisHashCache(client *redis.Client) *RedisHashCache {
 }
 
 func (cli *RedisHashCache) Set(key string, value any, ttl time.Duration) error {
-	pipe := cli.client.Pipeline()
+	tx := cli.client.TxPipeline()
 	ctx := context.Background()
-	pipe.HSet(ctx, key, value) // 如果是传入结构体的话，需要打上 redis 的 tag
-	pipe.Expire(ctx, key, ttl)
+	tx.HSet(ctx, key, value) // 如果是传入结构体的话，需要打上 redis 的 tag
+	tx.Expire(ctx, key, ttl)
 
-	if _, err := pipe.Exec(ctx); err != nil {
+	if _, err := tx.Exec(ctx); err != nil {
 		return err
 	}
 	return nil
