@@ -11,6 +11,7 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/prashantv/gostub v1.1.0
 	github.com/redis/go-redis/v9 v9.7.0
+	github.com/spaolacci/murmur3 v1.1.0
 	github.com/spf13/cast v1.7.0
 	github.com/stretchr/testify v1.9.0
 	go.uber.org/mock v0.4.0
