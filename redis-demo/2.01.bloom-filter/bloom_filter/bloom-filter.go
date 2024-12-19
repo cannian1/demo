@@ -16,14 +16,14 @@ type BloomFilter interface {
 }
 
 type BloomFilterService struct {
-	client    *redis.Client
+	client    redis.Cmdable
 	key       string
 	size      uint // 位数组大小
 	hashCount uint // 哈希函数数量
 	lock      sync.Mutex
 }
 
-func NewBloomFilterService(client *redis.Client, key string, expectedItems uint, falsePositiveRate float64) *BloomFilterService {
+func NewBloomFilterService(client redis.Cmdable, key string, expectedItems uint, falsePositiveRate float64) *BloomFilterService {
 	size, hashCount := calculateOptimalParams(expectedItems, falsePositiveRate)
 
 	return &BloomFilterService{

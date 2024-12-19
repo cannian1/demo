@@ -25,11 +25,11 @@ type BinaryRecorder interface {
 }
 
 type BinaryRecord struct {
-	client *redis.Client
+	client redis.Cmdable
 	key    string
 }
 
-func NewBinaryRecord(client *redis.Client, key string) *BinaryRecord {
+func NewBinaryRecord(client redis.Cmdable, key string) *BinaryRecord {
 	return &BinaryRecord{client: client, key: key}
 }
 

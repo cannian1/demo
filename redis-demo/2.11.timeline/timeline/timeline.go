@@ -27,12 +27,12 @@ type Timeline interface {
 
 // Paging 时间线分页器
 type Paging struct {
-	client *redis.Client
+	client redis.Cmdable
 	key    string
 }
 
 // NewPaging 创建一个新的时间线分页器
-func NewPaging(client *redis.Client, key string) *Paging {
+func NewPaging(client redis.Cmdable, key string) *Paging {
 	return &Paging{client: client, key: key}
 }
 

@@ -24,11 +24,11 @@ type Location interface {
 }
 
 type RedisLocation struct {
-	client *redis.Client
+	client redis.Cmdable
 	key    string
 }
 
-func NewRedisLocation(client *redis.Client, key string) *RedisLocation {
+func NewRedisLocation(client redis.Cmdable, key string) *RedisLocation {
 	return &RedisLocation{client: client, key: key}
 }
 

@@ -18,11 +18,11 @@ type Lottery interface {
 }
 
 type RedisLottery struct {
-	client *redis.Client
+	client redis.Cmdable
 	key    string
 }
 
-func NewRedisLottery(client *redis.Client, key string) *RedisLottery {
+func NewRedisLottery(client redis.Cmdable, key string) *RedisLottery {
 	return &RedisLottery{client: client, key: key}
 }
 

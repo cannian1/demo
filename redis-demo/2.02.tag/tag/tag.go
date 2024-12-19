@@ -30,10 +30,10 @@ type Service interface {
 }
 
 type Tag struct {
-	client *redis.Client
+	client redis.Cmdable
 }
 
-func NewTag(client *redis.Client) *Tag {
+func NewTag(client redis.Cmdable) *Tag {
 	return &Tag{client: client}
 }
 

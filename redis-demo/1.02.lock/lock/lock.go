@@ -13,11 +13,11 @@ import (
 const valueOfLock = "*"
 
 type RedisLock struct {
-	client *redis.Client
+	client redis.Cmdable
 	key    string
 }
 
-func NewRedisLock(client *redis.Client, key string) *RedisLock {
+func NewRedisLock(client redis.Cmdable, key string) *RedisLock {
 	return &RedisLock{client: client, key: key}
 }
 

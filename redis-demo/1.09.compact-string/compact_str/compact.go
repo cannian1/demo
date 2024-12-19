@@ -28,12 +28,12 @@ type OptBytesRange struct {
 }
 
 type CompactStr struct {
-	client    *redis.Client
+	client    redis.Cmdable
 	key       string
 	separator string
 }
 
-func NewCompactStr(client *redis.Client, key string, separator string) *CompactStr {
+func NewCompactStr(client redis.Cmdable, key string, separator string) *CompactStr {
 	if separator == "" {
 		separator = defaultSeparator
 	}

@@ -30,7 +30,7 @@ type Relation interface {
 }
 
 type RedisRelation struct {
-	client *redis.Client
+	client redis.Cmdable
 	user   string
 }
 
@@ -42,7 +42,7 @@ func makeFollowerKey(user string) string {
 	return fmt.Sprintf("Relation:%s:follower", user)
 }
 
-func NewRedisRelation(client *redis.Client, user string) *RedisRelation {
+func NewRedisRelation(client redis.Cmdable, user string) *RedisRelation {
 	return &RedisRelation{client: client, user: user}
 }
 

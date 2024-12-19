@@ -22,11 +22,11 @@ const (
 )
 
 type RedisShortURL struct {
-	client *redis.Client
+	client redis.Cmdable
 }
 
 // NewRedisShortURL 创建一个新的短链接服务
-func NewRedisShortURL(client *redis.Client) *RedisShortURL {
+func NewRedisShortURL(client redis.Cmdable) *RedisShortURL {
 	return &RedisShortURL{client: client}
 }
 

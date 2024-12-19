@@ -10,11 +10,11 @@ import (
 // 优点：占用空间小，时间复杂度低
 
 type RedisUniqueCounterHyperLogLog struct {
-	client *redis.Client
+	client redis.Cmdable
 	key    string
 }
 
-func NewRedisUniqueCounterHyperLogLog(client *redis.Client, key string) *RedisUniqueCounterHyperLogLog {
+func NewRedisUniqueCounterHyperLogLog(client redis.Cmdable, key string) *RedisUniqueCounterHyperLogLog {
 	return &RedisUniqueCounterHyperLogLog{client: client, key: key}
 }
 

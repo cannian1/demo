@@ -24,12 +24,12 @@ type Pagination interface {
 }
 
 type Paging struct {
-	client *redis.Client
+	client redis.Cmdable
 	key    string
 }
 
 // NewPaging 创建一个新的分页器
-func NewPaging(client *redis.Client, key string) *Paging {
+func NewPaging(client redis.Cmdable, key string) *Paging {
 	return &Paging{client: client, key: key}
 }
 

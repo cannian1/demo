@@ -13,10 +13,10 @@ type Cache[T any] interface {
 }
 
 type RedisCache struct {
-	client *redis.Client
+	client redis.Cmdable
 }
 
-func NewRedisCache(client *redis.Client) *RedisCache {
+func NewRedisCache(client redis.Cmdable) *RedisCache {
 	return &RedisCache{client: client}
 }
 

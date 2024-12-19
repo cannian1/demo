@@ -14,11 +14,11 @@ type IDGenerator interface {
 }
 
 type RedisIDGenerator struct {
-	client *redis.Client
+	client redis.Cmdable
 	name   string
 }
 
-func NewRedisIDGenerator(client *redis.Client, name string) *RedisIDGenerator {
+func NewRedisIDGenerator(client redis.Cmdable, name string) *RedisIDGenerator {
 	return &RedisIDGenerator{client: client, name: name}
 }
 

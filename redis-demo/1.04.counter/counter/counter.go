@@ -22,11 +22,11 @@ type Counter interface {
 // HIncrBy 负数用于减少计数器的值
 
 type RedisCounter struct {
-	client *redis.Client
+	client redis.Cmdable
 	key    string
 }
 
-func NewRedisCounter(client *redis.Client, key string) *RedisCounter {
+func NewRedisCounter(client redis.Cmdable, key string) *RedisCounter {
 	return &RedisCounter{client: client, key: key}
 }
 

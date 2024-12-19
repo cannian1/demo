@@ -22,7 +22,7 @@ type AutoComplete interface {
 }
 
 type RedisAutoComplete struct {
-	client  *redis.Client
+	client  redis.Cmdable
 	subject string
 }
 

@@ -16,11 +16,11 @@ type UniqueCounter interface {
 }
 
 type RedisUniqueCounter struct {
-	client *redis.Client
+	client redis.Cmdable
 	key    string
 }
 
-func NewRedisUniqueCounter(client *redis.Client, key string) *RedisUniqueCounter {
+func NewRedisUniqueCounter(client redis.Cmdable, key string) *RedisUniqueCounter {
 	return &RedisUniqueCounter{client: client, key: key}
 }
 

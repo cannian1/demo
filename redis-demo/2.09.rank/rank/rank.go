@@ -27,12 +27,12 @@ type Ranker interface {
 }
 
 type Rank struct {
-	client *redis.Client
+	client redis.Cmdable
 	key    string
 }
 
 // NewRank 创建一个新的排行榜
-func NewRank(client *redis.Client, key string) *Rank {
+func NewRank(client redis.Cmdable, key string) *Rank {
 	return &Rank{client: client, key: key}
 }
 

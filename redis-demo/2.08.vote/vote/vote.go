@@ -27,12 +27,12 @@ type Voter interface {
 }
 
 type Vote struct {
-	client      *redis.Client
+	client      redis.Cmdable
 	voteUpKey   string
 	voteDownKey string
 }
 
-func NewVote(client *redis.Client, subject string) *Vote {
+func NewVote(client redis.Cmdable, subject string) *Vote {
 	return &Vote{
 		client:      client,
 		voteUpKey:   fmt.Sprintf("Vote:%s:up", subject),

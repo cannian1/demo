@@ -19,7 +19,7 @@ type Iterator interface {
 const DefaultCount = 10
 
 type DbIterator struct {
-	client  *redis.Client
+	client  redis.Cmdable
 	count   int64
 	cursor  uint64
 	hasMore bool

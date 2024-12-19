@@ -33,11 +33,11 @@ type Session interface {
 }
 
 type RedisSession struct {
-	client *redis.Client
+	client redis.Cmdable
 	uid    string
 }
 
-func NewRedisSession(client *redis.Client, uid string) *RedisSession {
+func NewRedisSession(client redis.Cmdable, uid string) *RedisSession {
 	return &RedisSession{client: client, uid: uid}
 }
 

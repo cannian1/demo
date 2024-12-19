@@ -4,7 +4,6 @@ import (
 	"context"
 	_ "embed"
 	"fmt"
-	"math"
 
 	"github.com/redis/go-redis/v9"
 	"github.com/spf13/cast"
@@ -28,13 +27,13 @@ type RateLimiter interface {
 }
 
 type RedisRateLimiter struct {
-	client   *redis.Client
+	client   redis.Cmdable
 	action   string // 行为名称
 	interval int64  // 限流时间间隔
 	maximum  int64  // 限流次数
 }
 
-func NewRedisRateLimiter(client *redis.Client, action string, interval, maximum int64) *RedisRateLimiter {
+func NewRedisRateLimiter(client redis.Cmdable, action string, interval, maximum int64) *RedisRateLimiter {
 	return &RedisRateLimiter{client: client, action: action, interval: interval, maximum: maximum}
 }
 
@@ -73,7 +72,7 @@ func (r *RedisRateLimiter) Duration(uid int64) (int64, error) {
 	// 使用 Lua 脚本获取当前计数器的值和过期时间
 	res, err := r.client.Eval(context.Background(), luaScriptKeyAndTTL, []string{key}, r.maximum, r.interval).Result()
 	if err != nil {
-		return math.MaxInt64, err
+		return -1, err
 	}
 
 	resSlice := res.([]interface{})
