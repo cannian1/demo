@@ -7,13 +7,14 @@ require (
 	github.com/gin-gonic/gin v1.10.0
 	github.com/go-redis/redismock/v9 v9.2.0
 	github.com/google/uuid v1.6.0
+	github.com/looplab/fsm v1.0.2
 	github.com/prashantv/gostub v1.1.0
 	github.com/redis/go-redis/v9 v9.7.0
 	github.com/segmentio/kafka-go v0.4.47
 	github.com/spaolacci/murmur3 v1.1.0
 	github.com/spf13/cast v1.7.0
-	github.com/stretchr/testify v1.9.0
-	go.uber.org/mock v0.4.0
+	github.com/stretchr/testify v1.10.0
+	go.uber.org/mock v0.5.0
 	gorm.io/driver/mysql v1.5.7
 	gorm.io/gen v0.3.26
 	gorm.io/gorm v1.25.12
