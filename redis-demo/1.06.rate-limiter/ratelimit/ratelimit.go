@@ -9,6 +9,8 @@ import (
 	"github.com/spf13/cast"
 )
 
+// 频控：M 秒内最多进行 N 次操作
+
 //go:embed incr_and_ex.lua
 var luaScriptIncrAndExpire string
 
