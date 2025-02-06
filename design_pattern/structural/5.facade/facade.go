@@ -8,8 +8,8 @@ type CPU struct {
 	speed float64
 }
 
-func (g *CPU) overLock() {
-	g.speed *= 10
+func (c *CPU) overLock() {
+	c.speed *= 10
 }
 
 func (c *CPU) run() {
