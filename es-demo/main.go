@@ -32,31 +32,31 @@ func main() {
 	}
 
 	// 创建索引
-	//createIndex(client)
+	//createIndex(add_client)
 
 	// 创建文档
-	//indexDocument(client)
-	//indexDocument2(client)
+	//indexDocument(add_client)
+	//indexDocument2(add_client)
 
 	// 查询文档
-	//getDocument(client, strconv.Itoa(2))
+	//getDocument(add_client, strconv.Itoa(2))
 
 	// 搜索所有文档
 	searchDocument(client)
 
 	// 聚合搜索
-	//aggregationDemo(client)
+	//aggregationDemo(add_client)
 
 	// 用结构体更新文档
-	//updateDocument(client)
+	//updateDocument(add_client)
 	// 用 json 更新文档
-	//updateDocument2(client)
+	//updateDocument2(add_client)
 
 	// 删除文档
-	//deleteDocument(client)
+	//deleteDocument(add_client)
 
 	// 删除索引
-	//deleteIndex(client)
+	//deleteIndex(add_client)
 }
 
 // createIndex 创建索引
