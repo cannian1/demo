@@ -8,6 +8,7 @@ require (
 	github.com/gin-gonic/gin v1.10.0
 	github.com/go-redis/redismock/v9 v9.2.0
 	github.com/google/uuid v1.6.0
+	github.com/jinzhu/copier v0.4.0
 	github.com/looplab/fsm v1.0.2
 	github.com/prashantv/gostub v1.1.0
 	github.com/prometheus/client_golang v1.20.5
