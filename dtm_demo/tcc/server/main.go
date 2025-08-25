@@ -1,9 +1,8 @@
 package main
 
 import (
-	"fmt"
-
 	"demo/dtm_demo/tcc/dto"
+	"fmt"
 
 	"github.com/gin-gonic/gin"
 )
@@ -29,14 +28,17 @@ func apiTry(c *gin.Context) {
 	if err != nil {
 		c.JSON(409, "")
 	}
-	if Balance < req.Amount {
-		c.JSON(200, gin.H{"dtm_result": "FAILURE", "message": "余额不足"})
-		return
-	}
 
 	Balance -= req.Amount
 	LockBalance += req.Amount
-	fmt.Println("apiTry")
+
+	// 校验要后置，否则会影响回滚补偿的正确性
+	if Balance < 0 {
+		c.JSON(409, gin.H{"dtm_result": "FAILURE", "message": "余额不足"})
+		return
+	}
+
+	fmt.Println("[apiTry] Balance:", Balance, " LockBalance:", LockBalance)
 	c.JSON(200, gin.H{"dtm_result": "try SUCCESS"})
 }
 
@@ -46,8 +48,13 @@ func apiConfirm(c *gin.Context) {
 	if err != nil {
 		c.JSON(409, "")
 	}
+
+	// confirm 阶段报错会被 dtm 重试
+	//c.JSON(409, "我是故意报错的")
+	//return
+
 	LockBalance -= req.Amount
-	fmt.Println("apiConfirm")
+	fmt.Println("[apiConfirm] Balance:", Balance, " LockBalance:", LockBalance)
 	c.JSON(200, gin.H{"dtm_result": "confirm SUCCESS"})
 }
 
@@ -57,8 +64,8 @@ func apiCancel(c *gin.Context) {
 	if err != nil {
 		c.JSON(409, "")
 	}
-	Balance += req.Amount
 	LockBalance -= req.Amount
-	fmt.Println("apiCancel")
+	Balance += req.Amount
+	fmt.Println("[apiCancel] Balance:", Balance, " LockBalance:", LockBalance)
 	c.JSON(200, gin.H{"dtm_result": "cancel SUCCESS"})
 }
